@@ -1,53 +1,34 @@
-<style>
-	.htsp{
-		margin-top:10px;
-		margin-bottom:10px;
-		border:2px solid red;
-		float:left;
-		width:200px;
-		height:300px;	
-		text-align:left;
-		margin-left:30px;
-	}
-	img{
-		width:180px;
-		height:200px;
-	}
-	.ttrang{
-		height:1000px;
-		margin-left:88px;
-		margin-right:30px;
-	}
-	.phantrang{
-		margin-top:20px;
-	}
-	h1{
-		float:center;
-	}
-</style>
-<div class="ttrang">
-<h1> Sản phẩm theo mục</h1>
-	<?php foreach($sp as $sanpham): ?>
-	<div class="htsp">
-		<?php echo '<b>'.'Tên sản phẩm:'.'</b>'?>
-		<?= $sanpham->name_product?><br>
-		<?php echo '<b>'.'Hình ảnh sản phẩm:'.'</b>'.'<br>'?>
-		<?= $this->Html->image('Hinhanh/'.$sanpham['img_product'],array('alt'=>'CakePHP'))?><br>
-		<div style="margin-left:100px;">
-			<?= $this->Html->link('Chi tiết',['action' => '../products/detailproduct', $sanpham->id_product]) ?>
-			</div>
-		</div>
-	<?php endforeach; ?>
-</div>
-
-<div class="phantrang">
-<ul class="pagination">
+<div class="ttrang" style="float:left;">
+<?php foreach($sp as $sanpham): ?>
+	<div class="grid_1_of_4 images_1_of_4" style="float:left;">	
+	    <a href="../detailproduct/<?php echo $sanpham->id_product;?>" target="_blank" title="Click để xem chi tiết">
+	    	<?= $this->Html->image('Hinhanh/'.$sanpham['img_product'],array('alt'=>'CakePHP'))?><br>
+	    </a>
+	                     <h2><?= $sanpham->name_product?> </h2>
+	                    <div class="price-details">
+	                       <div class="price-number">
+	                            <!--<?=$sanpham->price_product?>-->
+	                            <?=number_format($sanpham['price_product']) ?>
+	                        </div>
+	                                <div class="add-cart">                              
+	                                    <h4><a href="#">Add to Cart</a></h4>
+	                                 </div>
+	                             <div class="clear"></div>
+	                    </div>                  
+	 </div>
+ <?php endforeach; ?> 
+</div> 
+ <div class="phantrang">
+<ul class="pagination" style="display: inline-block;">
         <li><?php echo $this->Paginator->numbers(); ?></li>
     </ul>
-   <!--<li><?php echo $this->Paginator->numbers(); ?></li>-->
- <!-- <?php echo $this->Paginator->prev(' < ' . __('previous')); ?> 
-<?php echo $this->Paginator->first('< first'); ?> 
-<?php echo $this->Paginator->numbers(); ?> 
- <?php echo $this->Paginator->next(' next >'); ?>  
-<?php echo $this->Paginator->last(' last >'); ?>-->
 </div>
+<!--<style>
+	.pagination li{
+		margin-left:100px;
+		float:left;
+		color:black;
+		 padding: 8px 16px;
+		 text-decoration: none;
+	}
+</style>-->

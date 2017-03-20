@@ -60,13 +60,13 @@ class AppController extends Controller
                 ],// sau khi loggin xog điều hướng đến trang sản phẩm mới nhất
                 'loginRedirect' => [
                     'controller' => 'Products',
-                    'action' => 'viewproduct'
+                    'action' => 'newproduct'
                  ],
                   
                   'storage'=>'session'
 
               ]);
-            $this->Auth->allow('register','viewproduct');// cho phep vao trang dang ky ma ko phai dang nhap
+            $this->Auth->allow('register','newproduct');// cho phep vao trang dang ky ma ko phai dang nhap
     }
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -96,9 +96,10 @@ class AppController extends Controller
             $this->set('loggedIn',false);
         }
         //khi load trang van giu gia tri cua bien
-        $this->loadModel('Types');
-        $type = $this->Types->find('all');
-         $this->set(compact('type'));
-
+        if($this->loadModel('Types')){
+            $type=$this->Types->find('all');
+            $typeListMobile=$this->Types->find('all',['conditions'=>['Types.loai'=>1]]);
+             $this->set(compact('type','typeListMobile'));
+        }
     }
 }
