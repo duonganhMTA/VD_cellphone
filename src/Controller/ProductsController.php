@@ -37,6 +37,14 @@ class ProductsController extends AppController
 		$this->viewBuilder()->layout(false);
 		 $sp = $this->Products->get($id_product);
         $this->set(compact('sp'));
+        $id=$this->request->session()->read('id_tp');
+        //pr($id);die();
+		$sanpham = $this->Products->find('all',['conditions' => ['Products.id_type' =>$id]]);
+		$this->set('sanpham', $this->paginate($sanpham,['limit' => 7,
+         'order' => [
+             'Products.id_product' => 'asc'
+         ]]));
+
 	}
 
 	//sản phẩm cùng thể loại
@@ -47,15 +55,17 @@ class ProductsController extends AppController
          'order' => [
              'Products.id_product' => 'asc'
          ]]));
+		
 	}
 
 	// sản phẩm liên quan
-	public function relatedproduct($id){
-		$sp = $this->Products->find('all',['conditions' => ['Products.id_type' =>$id]]);
-		$this->set('sp', $this->paginate($sp,['limit' => 4,
-         'order' => [
-             'Products.id_product' => 'asc'
-         ]]));
-	}
+	// public function relatedproduct(){
+	// 	$id=$this->request->session()->read('id_tp');
+	// 	$sp = $this->Products->find('all',['conditions' => ['Products.id_type' =>$id]]);
+	// 	$this->set('sp', $this->paginate($sp,['limit' => 3,
+ //         'order' => [
+ //             'Products.id_product' => 'asc'
+ //         ]]));
+	// }
 }
 ?>

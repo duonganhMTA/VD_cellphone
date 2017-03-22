@@ -8,9 +8,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-<h2 style="margin-left: 600px;margin-top: 50px;font-size: 40px;">Login</h2><br>
-<div class="container" style="border:1px solid black; width:400px;height: 200px">
+<body style="font-size:30px;">
+<h2 style="margin-left: 700px;margin-top: 50px;font-size: 40px;">Login</h2><br>
+<div class="container" style="border:1px solid black; width:450px;height: 500px">
     <div class="row" style="margin-left: 30px;">
         <br>
         <?=$this->Form->create();?>

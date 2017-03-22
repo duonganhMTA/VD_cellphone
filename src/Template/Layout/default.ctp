@@ -10,7 +10,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    
     <!--chèn css-->
         <?= $this->Html->css('style.css') ?>
         <?= $this->Html->css('slider.css') ?>
@@ -62,19 +61,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
             <div class="account_desc">
                 <ul>
-                    <li>
-                        <?= $this->Html->link('Register',['action'=>'../users/register'])?>
-                    </li>
-                    <li>
-                        <?= $this->Html->link('Login',['action'=>'../users/login'])?>
-                    </li>
-                    <li>
-                        <?= $this->Html->link('Logout',['action'=>'../users/logout'])?>
-                    </li>
-                    <li><a href="#">Checkout</a></li>
-                    <li>
+                     <li>
                         <?= $this->Html->link('My Account',['action'=>'../users/index'])?>
                     </li>
+                    <li>
+                         <a href="#">Account</a>
+                          <ul>
+                      <?php if($loggedIn): ?>
+                           <li>
+                              <i style="color:white"><?=$this->Html->link('Logout',['action'=>'../Users/logout'])?></i>
+                           </li> 
+                           <li>
+                          <i style="color:white"><?= $this->request->session()->read('Auth.User.username') ?></i>
+                           </li>  
+                      <?php else: ?>
+                         <li><i style="color:white"><?=$this->Html->link('Register',['action'=>'register'])?></i></li>
+                      <?php endif; ?>
+                      </ul>
+                    </li>
+                   
                 </ul>
             </div>
             <div class="clear"></div>

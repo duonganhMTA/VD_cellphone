@@ -3396,3 +3396,182 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
+2017-03-20 11:46:14 Notice: Notice (8): Undefined index: pageCount in [C:\xampp\htdocs\VD_cake\vendor\cakephp\cakephp\src\View\Helper\PaginatorHelper.php, line 731]
+Request URL: /VD_cake/products/detailproduct/4
+Referer URL: http://localhost:82/VD_cake/products/newproduct
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\View\Helper\PaginatorHelper::numbers() - CORE\src\View\Helper\PaginatorHelper.php, line 731
+include - APP/Template\Products\relatedproduct.ctp, line 17
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Products\detailproduct.ctp, line 172
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-03-21 06:25:48 Notice: Notice (8): Undefined index: pageCount in [C:\xampp\htdocs\VD_cake\vendor\cakephp\cakephp\src\View\Helper\PaginatorHelper.php, line 731]
+Request URL: /VD_cake/products/detailproduct/10
+Referer URL: http://localhost:82/VD_cake/products/getproduct/1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\View\Helper\PaginatorHelper::numbers() - CORE\src\View\Helper\PaginatorHelper.php, line 731
+include - APP/Template\Products\relatedproduct.ctp, line 17
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Products\detailproduct.ctp, line 172
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-03-21 07:46:51 Notice: Notice (8): Undefined index: pageCount in [C:\xampp\htdocs\VD_cake\vendor\cakephp\cakephp\src\View\Helper\PaginatorHelper.php, line 731]
+Request URL: /VD_cake/products/detailproduct/1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\View\Helper\PaginatorHelper::numbers() - CORE\src\View\Helper\PaginatorHelper.php, line 731
+include - APP/Template\Products\relatedproduct.ctp, line 17
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Products\detailproduct.ctp, line 172
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-03-21 08:45:03 Notice: Notice (8): Undefined index: pageCount in [C:\xampp\htdocs\VD_cake\vendor\cakephp\cakephp\src\View\Helper\PaginatorHelper.php, line 731]
+Request URL: /VD_cake/products/detailproduct/1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\View\Helper\PaginatorHelper::numbers() - CORE\src\View\Helper\PaginatorHelper.php, line 731
+include - APP/Template\Products\relatedproduct.ctp, line 27
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Products\detailproduct.ctp, line 173
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-03-21 09:21:30 Notice: Notice (8): Undefined variable: sanpham in [C:\xampp\htdocs\VD_cake\src\Template\Products\relatedproduct.ctp, line 2]
+Request URL: /VD_cake/products/detailproduct/10
+Referer URL: http://localhost:82/VD_cake/products/getproduct/1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+include - APP/Template\Products\relatedproduct.ctp, line 2
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Products\detailproduct.ctp, line 173
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-03-21 09:31:04 Notice: Notice (8): Undefined variable: id_product in [C:\xampp\htdocs\VD_cake\src\Controller\ProductsController.php, line 38]
+Request URL: /VD_cake/products/detailproduct/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Controller\ProductsController::detailproduct() - APP/Controller\ProductsController.php, line 38
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+

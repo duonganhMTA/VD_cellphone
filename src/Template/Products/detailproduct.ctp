@@ -3,6 +3,10 @@
 <title>Detail product</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<!--chèn css-->
         <?= $this->Html->css('style.css') ?>
         <?= $this->Html->css('slider.css') ?>
@@ -88,103 +92,70 @@
 	     </div>	     	
    </div>
  <div class="main">
-    <div class="content">
-    	<div class="content_top">
-    		<div class="back-links">
-    		<h3><?=$this->Html->link('Home',['action'=>'../products/newproduct'])?> >>>> <?=$this->Html->link('All product',['action'=>'../products/viewproduct'])?>
-    		</h3>
-    	    </div>
-    		<div class="clear"></div>
-    	</div>
-    	<div class="section group">
-				<div class="cont-desc span_1_of_2">
-				  <div class="product-details">				
-					<div class="grid images_3_of_2">
-						<div id="container">
-						   <div id="products_example">
-							   <div id="products">
-								<div class="image">
-									<?= $this->Html->image('Hinhanh/'.$sp['img_product'],array('alt'=>'CakePHP'))?>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="desc span_3_of_2">
-					<h2><?= $sp->name_product?></h2>					
-					<div class="price">
-						<p>Price:<?=number_format($sp['price_product']) ?></p>	
-					</div>
-					
-				<div class="share-desc">
-					<div class="button"><span><a href="#">Add to Cart</a></span></div>	
-					<div class="clear"></div>
-				</div>
-			</div>
-			<div class="clear"></div>
-		  </div>
-		<div class="product_desc">	
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li class="resp-tabs-item" aria-controls="tab_item-0" role="tab">Product Details</li>
-					<li class="resp-tabs-item resp-tab-active" aria-controls="tab_item-1" role="tab">product Tags</li>
-					<div class="clear"></div>
-				</ul>
-				<div class="resp-tabs-container">
-					<div class="product-desc">
-						<h3>Các thông số kỹ thuật:</h3>
-										<p>
-												<?php echo '<b>'.'Tên sản phẩm:'.'</b>'?>
-												<?= h($sp->name_product) ?><br>
-												<?php echo '<b>'.'Giá sản phẩm:'.'</b>'?>
-												<?=number_format($sp['price_product']) ?><br>
-												<?php echo '<b>'.'Số lượng còn:'.'</b>'?>
-												<?=h($sp->num_product)?><br>
-												<?php echo '<b>'.'Camera:'.'</b>'?>
-												<?=h($sp->camera)?><br>
-												<?php echo '<b>'.'Ram:'.'<b>'?>
-												<?=h($sp->ram)?><br>
-												<?php echo '<b>'.'Memory card:'.'</b>'?><br>
-												<?=h($sp->memory_card)?><br>
-												<?php echo '<b>'.'Sim:'.'</b>'?><br>
-												<?=h($sp->sim)?><br>
-												<?php echo '<b>'.'Pin:'.'</b>'?>
-												<?=h($sp->pin)?><br>
-										</p>
-					</div>
+   	<div class="container-fluid">
+  		<div class="row content">
+    		<div class="col-sm-3 sidenav">
+     			 <h4>Categories</h4>
+     			 <ul>
+       			 <li>
+        			  <ul>
+              			 <li>  
+                 			 <?=  $this->Element('../Types/getListtype'); ?>           
+              			 </li>
+         			 </ul>
+       			 </li>
+     			 </ul>
+    		</div>
 
-				 <div class="product-tags">
-						 <p>Các sản phẩm liên quan</p>
-			    </div>	
-			</div>
-		 </div>
-	 </div>
-   <div class="content_bottom">
-    		<div class="heading">
-    		<h3>Related Products</h3>
-    		</div>
-    		<div class="see">
-    			<p><a href="#">See all Products</a></p>
-    		</div>
-    		<div class="clear"></div>
+    <div class="col-sm-9">
+      	<h4><?=$this->Html->link('Home',['action'=>'../products/newproduct'])?> >>>> <?=$this->Html->link('All product',['action'=>'../products/viewproduct'])?>
+     	 </h4>
+      		<hr>
+     	 <div class="image" style="float:left;">
+      	<?= $this->Html->image('Hinhanh/'.$sp['img_product'],array('alt'=>'CakePHP','style'=>'width:300px;height:350px;'))?>
+      	</div>
+      	<div class="desc span_3_of_2">
+      	 <h2><?= $sp->name_product?></h2>
+      	<p>Price:<?=number_format($sp['price_product']) ?></p>  
+     	 <div class="button"><span><a href="#">Add to Cart</a></span></div> 
+     	</div> 
+          <div class="clear"></div>
     </div>
-   		<div class="section group">
-   			 <?=  $this->Element('../products/relatedproduct'); ?> 
-		</div>
-
   </div>
-
-				<div class="rightsidebar span_3_of_1">
-					<h2>CATEGORIES</h2>
-						<ul>
-					       <li>  
-	                              <?=  $this->Element('../Types/getListtype'); ?>           
-	                        </li>
-	    				</ul>
- 				</div>
- 		</div>
- 	</div>
-    </div>
+  <div class="row">
+  	<ul class="nav nav-tabs">
+	    <li class="active"><a data-toggle="tab" href="#home">Related product</a></li>
+	    <li><a data-toggle="tab" href="#menu1">Detail product </a></li>
+  	</ul>
+  	<div class="col-lg-12 tab-content">
+    	<div id="home" class="tab-pane fade in active">
+    		<?=  $this->Element('../Products/relatedproduct'); ?>
+   		</div>
+    	<div id="menu1" class="tab-pane fade">
+    		<h3>Các thông số kỹ thuật:</h3>
+                    <p>
+                        <?php echo '<b>'.'Tên sản phẩm:'.'</b>'?>
+                        <?= h($sp->name_product) ?><br>
+                        <?php echo '<b>'.'Giá sản phẩm:'.'</b>'?>
+                        <?=number_format($sp['price_product']) ?><br>
+                        <?php echo '<b>'.'Số lượng còn:'.'</b>'?>
+                        <?=h($sp->num_product)?><br>
+                        <?php echo '<b>'.'Camera:'.'</b>'?>
+                        <?=h($sp->camera)?><br>
+                        <?php echo '<b>'.'Ram:'.'<b>'?>
+                        <?=h($sp->ram)?><br>
+                        <?php echo '<b>'.'Memory card:'.'</b>'?>
+                        <?=h($sp->memory_card)?><br>
+                        <?php echo '<b>'.'Sim:'.'</b>'?>
+                        <?=h($sp->sim)?><br>
+                        <?php echo '<b>'.'Pin:'?>
+                        <?=h($sp->pin)?>
+                    </p>	
+   	    </div>
+  	</div>
+  </div>
+</div>
+ </div>
  </div>
    <div class="footer">
       <div class="wrap">    
@@ -310,3 +281,31 @@
 			
 		});
 	</script>
+<style>
+	
+	.sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .sidenav li a{
+    font-size:1em;
+	padding:8px 0 8px 20px;
+	color: #666;
+	display: block;
+	font-family: 'ambleregular';
+	background: url(../images/drop_arrow.png) no-repeat 0;
+	border-bottom:1px solid #F0F0F0;
+    }
+    .sidenav li a:hover{
+    background: url(../images/drop_arrow-hover.png) no-repeat 0;
+	color:#B81D22;
+    }
+    .row{
+	    margin-right: -15px;
+	    margin-left: -15px;
+	    height: 633px;
+    }
+    .footer{
+    	clear:both;
+    }
+</style>
