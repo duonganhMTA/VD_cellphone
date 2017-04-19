@@ -191,6 +191,29 @@ return [
         ],
     ],
 
+    'EmailTransport' => [
+        'default' => [
+            'className' => 'Mail',
+            // The following keys are used in SMTP transports
+            'host' => 'localhost',
+            'port' => 25,
+            'timeout' => 30,
+            'username' => 'duonganh95hd@gmail.com',
+            'password' => '19021995',
+            'client' => null,
+            'tls' => null,
+            // 'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
+        ],
+        'gmail' => [
+            'className' => 'Smtp',
+            'host' => 'ssl://smtp.gmail.com',
+            'port' => 465,
+            'timeout' => 300,
+            'username' => 'duonganh95hd@gmail.com',
+            'password' => '19021995',
+            'tls' => false
+        ],
+    ],
     /**
      * Email delivery profiles
      *
@@ -206,6 +229,12 @@ return [
             'from' => 'you@localhost',
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
+        ],
+        'gmail' => [
+            'transport' => 'gmail',
+            'from' => 'duonganh95hd@gmail.com',
+            'charset' => 'utf-8',
+            'headerCharset' => 'utf-8',
         ],
     ],
 

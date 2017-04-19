@@ -3,15 +3,15 @@
 <title>Detail product</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!--chèn css-->
         <?= $this->Html->css('style.css') ?>
         <?= $this->Html->css('slider.css') ?>
         <?=$this->Html->css('global.css')?>
         <?=$this->Html->css('easy-responsive-tabs.css')?>
+       
     <!-- chèn javascrit-->
         <?= $this->Html->script('jquery-1.7.2.min'); ?>
         <?= $this->Html->script('move-top'); ?>
@@ -24,42 +24,57 @@
         <?= $this->fetch('script'); ?>
 
 </head>
-<body>
+<body style="font-size: 24px;">
   <div class="wrap">
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
 				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
 			</div>
-			<div class="account_desc">
-				<ul>
-					 <li>
-                        <?= $this->Html->link('Register',['action'=>'../users/register'])?>
+            <div class="account_desc">
+                <ul>
+                     <li>
+                        <?= $this->Html->link('Users',['action'=>'../users/index'])?>
                     </li>
                     <li>
-                        <?= $this->Html->link('Login',['action'=>'../users/login'])?>
+                         <a href="#">Account</a>
+                          <ul>
+                      <?php if($loggedIn): ?>
+                           <li>
+                              <i style="color:black"><?=$this->Html->link('Logout',['action'=>'../Users/logout'])?></i>
+                           </li> 
+                           <li>
+                          <p style="color:black;font-size:0.823em;"><?= $this->request->session()->read('Auth.User.username') ?></p>
+                           </li>  
+                      <?php else: ?>
+                         <li><i style="color:white"><?=$this->Html->link('Register',['action'=>'register'])?></i></li>
+                      <?php endif; ?>
+                      </ul>
                     </li>
-                    <li>
-                        <?= $this->Html->link('Logout',['action'=>'../users/logout'])?>
-                    </li>
-                    <li><a href="#">Checkout</a></li>
-                    <li>
-                        <?= $this->Html->link('My Account',['action'=>'../users/index'])?>
-                    </li>
-				</ul>
-			</div>
+                   
+                </ul>
+            </div>
 			<div class="clear"></div>
 		</div>
 		<div class="header_top">
 			<div class="logo">
 				<a href="#"><?=$this->Html->image('logo.png',array('alt'=>'cakePHP'))?></a>
 			</div>
-			  <div class="cart">
-			  	   <p>Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00
-			  	   	<ul class="dropdown">
-							<li>you have no items in your Shopping cart</li>
-					</ul></div></p>
-			  </div>
+			  <div class="glyphicon glyphicon-shopping-cart" id="cart" style="margin-left:1064px;">
+                <?php 
+                   if(isset($_SESSION['cart']) && $_SESSION['cart'] !=null) {
+                    $totalquantity = 0;
+                    foreach($_SESSION['cart'] AS $product) {
+                        $totalquantity = $totalquantity + $product['quantity'];
+                    }
+                   }
+                 else {
+                       $totalquantity = 0;
+                  }
+                ?>
+
+                <a href="/Carts/viewCart"><?php echo $totalquantity;?> Product</a>
+              </div>
 			  
 	 <div class="clear"></div>
   </div>
@@ -69,7 +84,7 @@
 			    	<li>
 			    		<?=$this->Html->link('Home',['action'=>'../products/newproduct'])?>
 			    	</li>
-			    	<li><a href="#">About</a></li>
+			   
 			    	<li><a href="#">Products</a>
 			    		 <ul>
                     		<li>
@@ -78,8 +93,9 @@
                     		</li>
                			 </ul>
 			    	</li>
-			    	<li><a href="#">News</a></li>
-			    	<li><a href="#">Contact</a></li>
+			    	   <li><?=$this->Html->link('News',['action'=>'../news/viewnews'])?></li>
+              <li><?=$this->Html->link('Gift',['action'=>'../gifts/viewgift'])?></li>
+               <li><?=$this->Html->link('Contact',['action'=>'../contacts/sendcontact'])?></li>
 			    	<div class="clear"></div>
      			</ul>
 	     	</div>
@@ -95,8 +111,9 @@
    	<div class="container-fluid">
   		<div class="row content">
     		<div class="col-sm-3 sidenav">
-     			 <h4>Categories</h4>
+     			
      			 <ul>
+             <h3 style="background:#383838;color:white;">Categories</h3>
        			 <li>
         			  <ul>
               			 <li>  
@@ -108,51 +125,59 @@
     		</div>
 
     <div class="col-sm-9">
-      	<h4><?=$this->Html->link('Home',['action'=>'../products/newproduct'])?> >>>> <?=$this->Html->link('All product',['action'=>'../products/viewproduct'])?>
-     	 </h4>
+      
+      	<h5 style="margin-left:935px;"><?=$this->Html->link('Home',['action'=>'../products/newproduct'])?> >>> <?=$this->Html->link('All product',['action'=>'../products/viewproduct'])?>
+     	 </h5>
       		<hr>
      	 <div class="image" style="float:left;">
-      	<?= $this->Html->image('Hinhanh/'.$sp['img_product'],array('alt'=>'CakePHP','style'=>'width:300px;height:350px;'))?>
+      	<?= $this->Html->image('Hinhanh/'.$sp['img_product'],array('alt'=>'CakePHP','style'=>'width:368px;height:440px;'))?>
       	</div>
       	<div class="desc span_3_of_2">
       	 <h2><?= $sp->name_product?></h2>
-      	<p>Price:<?=number_format($sp['price_product']) ?></p>  
-     	 <div class="button"><span><a href="#">Add to Cart</a></span></div> 
+      	<p>Price:<?=number_format($sp['price_product']).'VNĐ' ?></p> 
+
+        <form method="post" id="addcart"> 
+          <input name="id_product" type="hidden" value="{$sp['id_product']}}">
+          <button type="submit"  class="button">Add to Cart</button>
+         </form>
+
+     	<!-- <div class="button"><span><a href="#">Add to Cart</a></span></div>--> 
      	</div> 
           <div class="clear"></div>
+          
     </div>
   </div>
   <div class="row">
-  	<ul class="nav nav-tabs">
-	    <li class="active"><a data-toggle="tab" href="#home">Related product</a></li>
-	    <li><a data-toggle="tab" href="#menu1">Detail product </a></li>
-  	</ul>
-  	<div class="col-lg-12 tab-content">
-    	<div id="home" class="tab-pane fade in active">
-    		<?=  $this->Element('../Products/relatedproduct'); ?>
-   		</div>
-    	<div id="menu1" class="tab-pane fade">
-    		<h3>Các thông số kỹ thuật:</h3>
-                    <p>
-                        <?php echo '<b>'.'Tên sản phẩm:'.'</b>'?>
-                        <?= h($sp->name_product) ?><br>
-                        <?php echo '<b>'.'Giá sản phẩm:'.'</b>'?>
-                        <?=number_format($sp['price_product']) ?><br>
-                        <?php echo '<b>'.'Số lượng còn:'.'</b>'?>
-                        <?=h($sp->num_product)?><br>
-                        <?php echo '<b>'.'Camera:'.'</b>'?>
-                        <?=h($sp->camera)?><br>
-                        <?php echo '<b>'.'Ram:'.'<b>'?>
-                        <?=h($sp->ram)?><br>
-                        <?php echo '<b>'.'Memory card:'.'</b>'?>
-                        <?=h($sp->memory_card)?><br>
-                        <?php echo '<b>'.'Sim:'.'</b>'?>
-                        <?=h($sp->sim)?><br>
-                        <?php echo '<b>'.'Pin:'?>
-                        <?=h($sp->pin)?>
-                    </p>	
-   	    </div>
-  	</div>
+  	<div class="tab">
+      <button class="tablinks" style="font-size: 24px;" onclick="openMenu(event, 'Detailproduct')">Detailproduct</button>
+      <button class="tablinks" style="font-size: 24px;" onclick="openMenu(event, 'Relateproduct')">Relateproduct</button>
+    </div>
+
+    <div id="Detailproduct" class="tabcontent">
+      <h3>Các thông số kỹ thuật:</h3>
+                        <p>
+                            <?php echo '<b>'.'Tên sản phẩm:'.'</b>'?>
+                            <?= h($sp->name_product) ?><br>
+                            <?php echo '<b>'.'Giá sản phẩm:'.'</b>'?>
+                            <?=number_format($sp['price_product']) ?><br>
+                            <?php echo '<b>'.'Số lượng còn:'.'</b>'?>
+                            <?=h($sp->num_product)?><br>
+                            <?php echo '<b>'.'Camera:'.'</b>'?>
+                            <?=h($sp->camera)?><br>
+                            <?php echo '<b>'.'Ram:'.'<b>'?>
+                            <?=h($sp->ram)?><br>
+                            <?php echo '<b>'.'Memory card:'.'</b>'?>
+                            <?=h($sp->memory_card)?><br>
+                            <?php echo '<b>'.'Sim:'.'</b>'?>
+                            <?=h($sp->sim)?><br>
+                            <?php echo '<b>'.'Pin:'?>
+                            <?=h($sp->pin)?>
+                        </p>  
+    </div>
+
+    <div id="Relateproduct" class="tabcontent">
+        <?=  $this->Element('../Products/relatedproduct'); ?>
+    </div>
   </div>
 </div>
  </div>
@@ -216,7 +241,7 @@
             </div>          
         </div>
         <div class="copy_right">
-                <p>home_shoppe. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                <p> Duong Thi Anh</p>
            </div>
     </div>
    
@@ -254,6 +279,47 @@
 					});	
 				}
 			}
+//ajax khi add to cart
+  $(document).ready(function(){
+     var submit   = $("button[type='submit']");
+      submit.click(function()
+         {
+       var data = $('form#addcart').serialize();
+        //su dung ham $.ajax()
+        $.ajax({
+        type : 'POST', //kiểu post
+        url  : 'VD_cake/carts/addCart', //gửi dữ liệu sang trang submit.php
+        data : data,
+        success :  function(data)
+               {                       
+                    if(data == 'false')
+                    {
+                        alert('cant add to cart');
+                    }else{
+
+                        $('#content').html(data);
+                    }
+               }
+        });
+        return false;
+    });
+});
+  //tab menu
+
+function openMenu(evt, content) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(content).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
 
 			$(function() {
 
@@ -303,9 +369,46 @@
     .row{
 	    margin-right: -15px;
 	    margin-left: -15px;
-	    height: 633px;
+	    height: auto;
+      margin-bottom: 20px;
     }
     .footer{
     	clear:both;
     }
+    /* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
 </style>

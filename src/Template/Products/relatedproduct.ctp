@@ -5,16 +5,18 @@
     <?php } ?>
     <div class="col-lg-3 images_1_of_4">
          <?= $this->request->session()->write('id_tp',$sanpham['id_type']);?>   
-        <a href="../products/detailproduct/<?php echo $sanpham->id_product;?>" target="_blank" title="Click để xem chi tiết">
+        <a href="../detailproduct/<?php echo $sanpham->id_product;?>" title="Click để xem chi tiết">
             <?= $this->Html->image('Hinhanh/'.$sanpham['img_product'],array('alt'=>'CakePHP'))?><br>
         </a>
          <h2><?= $sanpham->name_product?> </h2>
         <div class="price-details">
            <div class="price-number">
-                <?=number_format($sanpham['price_product']) ?>
+                <?=number_format($sanpham['price_product']).'VNĐ' ?>
             </div>
                     <div class="add-cart">                              
-                        <h4><a href="#">Add to Cart</a></h4>
+                        <h4> <form method="post"> 
+                         <button type="submit"  class="button">Add to Cart</button>
+                         </form></h4>
                      </div>
                  <div class="clear"></div>
         </div>                  
@@ -29,5 +31,13 @@
         <li><?php echo $this->Paginator->numbers(); ?></li>
     </ul>
 </div>
+<style>
+    .row{
+        height:410px;
 
+    }
+    .col-lg-3{
+            height:356px;
+    }
+</style>
 </html>

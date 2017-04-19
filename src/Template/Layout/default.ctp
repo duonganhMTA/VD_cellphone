@@ -9,17 +9,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
     <!--chèn css-->
+    
+        <?= $this->Html->css('font-awesome.min.css') ?>
         <?= $this->Html->css('style.css') ?>
-        <?= $this->Html->css('slider.css') ?>
-        <?=$this->Html->css('global.css')?>
+       <?= $this->Html->css('slider.css') ?>
+      
+        <?=$this->Html->css('bootstrap.css')?>
     <!-- chèn javascrit-->
         <?= $this->Html->script('jquery-1.7.2.min'); ?>
         <?= $this->Html->script('move-top'); ?>
         <?= $this->Html->script('easing'); ?>
         <?= $this->Html->script('startstop-slider'); ?>
-
+        
          <?= $this->fetch('meta'); ?>
         <?= $this->fetch('css') ;?>
         <?= $this->fetch('script'); ?>
@@ -52,30 +56,31 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
         </script>
 </head>
-<body>
+<body style="font-size:24px;">
   <div class="wrap">
     <div class="header">
         <div class="headertop_desc">
             <div class="call">
-                 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+                 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></p>
             </div>
             <div class="account_desc">
                 <ul>
                      <li>
-                        <?= $this->Html->link('My Account',['action'=>'../users/index'])?>
+                        <?= $this->Html->link('Users',['action'=>'../users/index'])?>
                     </li>
                     <li>
                          <a href="#">Account</a>
                           <ul>
                       <?php if($loggedIn): ?>
                            <li>
-                              <i style="color:white"><?=$this->Html->link('Logout',['action'=>'../Users/logout'])?></i>
+                              <p style="color:black"><?=$this->Html->link('Logout',['action'=>'../Users/logout'])?></p>
                            </li> 
                            <li>
-                          <i style="color:white"><?= $this->request->session()->read('Auth.User.username') ?></i>
+                          <p style="color:black;font-size:0.823em;"><?= $this->request->session()->read('Auth.User.username') ?></p>
                            </li>  
                       <?php else: ?>
-                         <li><i style="color:white"><?=$this->Html->link('Register',['action'=>'register'])?></i></li>
+                         <li><i style="color:black"><?=$this->Html->link('Register',['controller'=>'Users','action'=>'register'])?></i></li>
+                         <li><i style="color:black"><?=$this->Html->link('Login',['controller'=>'Users','action'=>'login'])?></i></li>
                       <?php endif; ?>
                       </ul>
                     </li>
@@ -86,35 +91,40 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div class="header_top">
             <div class="logo">
-                <a href="#"><?= $this->Html->image('logo.png',array('alt'=>'CakePHP') ) ?></a>
+                <a href="../products/newproduct"><?= $this->Html->image('logo.png',array('alt'=>'CakePHP') ) ?></a>
             </div>
-              <div class="cart">
-                   <p>Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00
-                    <ul class="dropdown">
-                            <li>you have no items in your Shopping cart</li>
-                    </ul></div></p>
+              <div class="glyphicon glyphicon-shopping-cart" id="cart" style="margin-left:1064px;">
+                <?php 
+                  $total=0;
+                  if(isset($_SESSION['cart'])&& $_SESSION['cart'] !=null){
+                      foreach ($_SESSION['cart'] as $list) {
+                        $total+= $list['quantity'];
+                      }
+                  }
+                ?>
+                <a href="../carts/viewCart"><?php echo $total;?> Product</a>
               </div>
              
      <div class="clear"></div>
   </div>
+
     <div class="header_bottom">
             <div class="menu">
                 <ul>
                     <li class="active">
                         <?= $this->Html->link('Home',['action'=>'../products/newproduct'])?>
                     </li>
-                    <li><a href="#">About</a></li>
+               
                     <li><a href="#">Product</a>
                         <ul>
                     <li>
-                        
                          <?=  $this->Element('../Types/getlistphone'); ?>    
-                        
                     </li>
                 </ul>
                     </li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><?=$this->Html->link('News',['action'=>'../news/viewnews'])?></li>
+                    <li><?=$this->Html->link('Gift',['action'=>'../gifts/viewgift'])?></li>
+                    <li><?=$this->Html->link('Contact',['action'=>'../contacts/sendcontact'])?></li>
                     <div class="clear"></div>
                 </ul>
             </div>
@@ -124,9 +134,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </form>
             </div>
             <div class="clear"></div>
-         </div>      
+    </div>      
     <div class="header_slide">
-            <div class="header_bottom_left">                
+            <div class="header_bottom_left">
                 <div class="categories">
                   <ul>
                     <h3>Categories</h3>
@@ -142,62 +152,40 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                   </ul>
                 </div>                  
              </div>
-                     <div class="header_bottom_right">                   
-                         <div class="slider">                        
-                             <div id="slider">
-                                <div id="mover">
-                                    <div id="slide-1" class="slide">                                
-                                     <div class="slider-img">
-                                        <?=$this->Html->image('Hinhanh/samsung-galaxy-s6-edge-64gb-15-200x200.jpg',array('alt'=>'CakePHP'))?>                                  
-                                      </div>
-                                        <div class="slider-text">
-                                         <h1>Clearance<br><span>SALE</span></h1>
-                                         <h2>UPTo 5% OFF</h2>
-                                       <div class="features_list">
-                                                                                
-                                        </div>
-                                         <a href="#" class="button">Shop Now</a>
-                                       </div>                          
-                                      <div class="clear"></div>             
-                                  </div>    
-                                        <div class="slide">
-                                            <div class="slider-text">
-                                         <h1>Clearance<br><span>SALE</span></h1>
-                                         <h2>UPTo 20% OFF</h2>
-                                       <div class="features_list">
-                                                                                
-                                        </div>
-                                         <a href="preview.html" class="button">Shop Now</a>
-                                       </div>       
-                                         <div class="slider-img">
-                                         <a href="#"><?=$this->Html->image('lumia.jpg',array('alt'=>'cakePHP'))?></a>
-                                      </div>                                                                         
-                                      <div class="clear"></div>             
-                                  </div>
-                                  <div class="slide">                                       
-                                      <div class="slider-img">
-                                         <a href="#"><?=$this->Html->image('ip6plus_128G.jpg',array('alt'=>'cakePHP'))?></a>
-                                      </div>
-                                      <div class="slider-text">
-                                         <h1>Clearance<br><span>SALE</span></h1>
-                                         <h2>UPTo 10% OFF</h2>
-                                       <div class="features_list">
-                                                                                
-                                        </div>
-                                         <a href="#" class="button">Shop Now</a>
-                                       </div>   
-                                      <div class="clear"></div>             
-                                  </div>                                                
-                             </div>     
-                        </div>
-                     <div class="clear"></div>                         
-                 </div>
-              </div>
-           <div class="clear"></div>
-        </div>
-   </div>
+            <div class="header_bottom_right">
+               <div class="slider">              
+               <div id="slider">
+                  <div id="mover">
+                    <div id="slide-1" class="slide">                          
+                     <div class="slider-img">
+                      <?=$this->Html->image('lumia.jpg',array('alt'=>'CakePHP'))?>                
+                      </div>
+                                             
+                      <div class="clear"></div>       
+                  </div>  
+                  <div class="slide">
+                  
+                   <div class="slider-img">
+                   <?=$this->Html->image('ip6plus_128G.jpg',array('alt'=>'CakePHP','style'=>'width:400px;height:350px;'))?> 
+                  </div>                                                   
+                  <div class="clear"></div>       
+                  </div>
+                  <div class="slide">                         
+                    <div class="slider-img">
+                     <?=$this->Html->image('samsungc5.jpg',array('alt'=>'CakePHP'))?> 
+            </div>
+        
+            <div class="clear"></div>       
+              </div>                        
+               </div>   
+           <div class="clear"></div>                  
+           </div>
+       
+    </div>
+  </div>
+  </div>
  <div class="main">
-    <div class="content">
+    <div class="content">   <div class="clear"></div>
         <div class="content_top">
             <div class="heading">
                 <h3><?=$this->Html->link('New Product',['action'=>'../products/newproduct'])?></h3>
@@ -212,7 +200,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <?= $this->fetch('content');?>      
             </div>
  </div>   
-   <div class="footer">
+   <div class="footer" style="clear: both;display: block;">
       <div class="wrap">    
          <div class="section group">
                 <div class="col_1_of_4 span_1_of_4">

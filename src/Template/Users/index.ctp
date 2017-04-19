@@ -45,6 +45,9 @@
     .header_slide{
         display:none;
     }
+    .header_bottom{
+        display:none;
+    }
 </style>
 
 

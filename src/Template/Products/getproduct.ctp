@@ -11,7 +11,7 @@
          <h2><?= $sanpham->name_product?> </h2>
         <div class="price-details">
            <div class="price-number">
-                <?=number_format($sanpham['price_product']) ?>
+                <?=number_format($sanpham['price_product']).'VNĐ' ?>
             </div>
                     <div class="add-cart">                              
                         <h4><a href="#">Add to Cart</a></h4>
@@ -24,7 +24,7 @@
     <?php } ?>
  <?php endforeach; ?> 
 </div> 
- <div class="row">
+ <div class="row" style="height: 100px;">
 <ul class="pagination" style="display: inline-block;">
         <li><?php echo $this->Paginator->numbers(); ?></li>
     </ul>

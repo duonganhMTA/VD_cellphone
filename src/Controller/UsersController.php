@@ -103,6 +103,7 @@ class UsersController extends AppController
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->error(__('Invalid email or password, try again'));
+            
         } 
     }
 

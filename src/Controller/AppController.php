@@ -68,7 +68,16 @@ class AppController extends Controller
               ]);
             $this->Auth->allow('register','newproduct');// cho phep vao trang dang ky ma ko phai dang nhap
     }
-        /*
+    // public function beforeFilter() {
+    //     if($this->request->session()->read('Auth.User')){
+    //         $this->set('loggedIn',true);
+    //     }else{
+    //         $this->set('loggedIn',false);
+    //     }
+    //     $this->loadModel('Cart'); 
+    //     $this->set('count',$this->Cart->getCount());
+    // }
+        /*0981790859
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
          */
@@ -89,17 +98,29 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+        //check viet bai dang
+        $Admin=$this->request->session()->read('Auth.User.role_flg');
+        if(($this->request->session()->read('Auth.User')) && ($Admin==1)){
+            $this->set('loggedAdmin',true);
+        }else{
+            $this->set('loggedAdmin',false);
+        }
+        
         //login check
         if($this->request->session()->read('Auth.User')){
             $this->set('loggedIn',true);
         }else{
             $this->set('loggedIn',false);
         }
-        //khi load trang van giu gia tri cua bien
+        //cho cac trang khac nhau co the hieu dc bien do
         if($this->loadModel('Types')){
             $type=$this->Types->find('all');
             $typeListMobile=$this->Types->find('all',['conditions'=>['Types.loai'=>1]]);
              $this->set(compact('type','typeListMobile'));
+        }
+        if($this->loadModel('Gifts')){
+            $gift1=$this->Gifts->find('all');
+             $this->set(compact('gift1'));
         }
     }
 }

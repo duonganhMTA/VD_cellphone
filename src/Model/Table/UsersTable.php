@@ -8,6 +8,9 @@ class UsersTable extends Table
     {
         $this->addBehavior('Timestamp');
         $this->hasMany('News',['className'=>'News']);
+        $this->hasMany('Comments',['className'=>'Comments']);
+        $this->hasMany('Gifts',['className'=>'Gifts']);
+        $this->hasMany('Carts',['className'=>'Carts']);
     }
 
     public function validationDefault(Validator $validator)

@@ -5,8 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
  /* reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
-article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0;padding:0;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
@@ -52,14 +52,13 @@ b strong {
 	-webkit-box-shadow: 0px 0px 3px rgb(150, 150, 150);
 	-moz-box-shadow: 0px 0px 3px rgb(150, 150, 150);
 	-o-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+	
 }
-.container{
-	width: 100%;
-}
+
 .row {
     margin-right: -15px;
     margin-left: -15px;
-    height: 365px;
+   /*height: 365px;*/ 
     }
 .wrap {
 	width:94%;
@@ -90,12 +89,28 @@ b strong {
 	font-size:1em;
 	letter-spacing:1px;
 }
-.account_desc{
+/*.account_desc{
 	float:right;
 }
-.account_desc li{
+.account_desc{
+	 position:relative;
+	 float:left;
+}
+/*.account_desc li{
 	display:inline;
 	border-left:1px dotted #CCC;
+}*/
+/*.account_desc ul
+{
+	float: right;
+	list-style: none;
+	margin: auto;
+	padding: 0px;
+}
+.account_desc ul li
+{
+	position: relative;
+	float: left;
 }
 .account_desc li:first-child{
 	border:none;
@@ -108,6 +123,54 @@ b strong {
 }
 .account_desc li a:hover{
 	color:#E4292F;
+	display: block;
+}*/
+/*.account_desc li:hover ul
+	{
+		display: block;
+	}*/
+.account_desc{
+		margin-left:1390px;
+}
+.account_desc a{
+	text-decoration: none;
+	color:black;
+	padding: 10px;
+	display: inline-block;
+	font-size:0.823em;
+}
+.account_desc ul {
+	display: inline;
+	
+}
+.account_desc ul li {
+	display: inline-block;
+	border-left:1px dotted #CCC;
+}
+/*.account_desc ul li:hover {
+	background: #555;
+}*/
+.account_desc ul li:hover ul{
+	display:block;
+}
+.account_desc ul li ul{
+	position: absolute;
+	display: none;
+}
+.account_desc li{
+	display:inline;
+	
+}
+.account_desc ul li ul li{
+	display: block;
+}
+.account_desc ul li ul li a{
+	display: block;
+	color:#9C9C9C;
+	width: 80px;
+}
+.account_desc ul li ul li:hover{
+	background: #666;
 }
 .header_top {
 	padding: 20px 0;
@@ -349,6 +412,7 @@ b strong {
 	text-transform: uppercase;
 }
 .content_top{
+	margin-top: 10px;
 	padding: 15px 20px;
 	border: 1px solid #EBE8E8;
 	border-radius: 3px;
@@ -467,10 +531,12 @@ b strong {
 	clear: both;
 	background: #FCFCFC;
     border-top: 1px solid #CECECE;
- 
+ 	display:block;
 }
 .container{
 	height:auto;
+	width: 100%;
+
 }
 .section {
 	clear: both;
@@ -617,6 +683,7 @@ b strong {
 	padding: 0px;
 	margin: 0px;
 	padding: 1.5%;
+
 }
 .group:before, .group:after {
 	content: "";
